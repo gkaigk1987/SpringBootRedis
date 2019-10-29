@@ -21,6 +21,10 @@ public class TestController {
 		return "Hello Docker";
 	}
 
+	/**
+	 * 秒杀入口
+	 * @return
+	 */
 	@PostMapping(value = "/secKill")
 	@ResponseBody
 	public JSONObject testSecKill() {
@@ -29,15 +33,15 @@ public class TestController {
 		if("1".equals(secKill)) {
 			json.put("succ","true");
 			json.put("msg","购买成功");
-//			log.info("购买成功");
+			log.info("购买成功");
 		}else if("0".equals(secKill)) {
 			json.put("succ","true");
 			json.put("msg","商品已卖完");
-//			log.info("商品已售罄");
+			log.info("商品已售罄");
 		}else {
 			json.put("succ","false");
 			json.put("msg","未获取锁");
-//			log.info("未获取锁");
+			log.info("未获取锁");
 		}
 		return json;
 	}

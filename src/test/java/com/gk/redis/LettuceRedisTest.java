@@ -35,12 +35,13 @@ public class LettuceRedisTest {
 		client.setDefaultTimeout(Duration.ofSeconds(20));	//设置超时时间为20秒
 		StatefulRedisConnection<String,String> connect = client.connect();
 		RedisCommands<String,String> commands = connect.sync();	//同步命令
-		commands.set("key2", "value2");
-		commands.incr("test");
-		String key1_val = commands.get("key2");
-		String value1 = commands.get("key1");
-		System.out.println(key1_val);
-		System.out.println(value1);
+//		commands.set("key2", "value2");
+		Long test = commands.incr("test");
+		System.out.println(test);
+//		String key1_val = commands.get("key2");
+//		String value1 = commands.get("key1");
+//		System.out.println(key1_val);
+//		System.out.println(value1);
 		connect.close();
 		client.shutdown();
 	}
