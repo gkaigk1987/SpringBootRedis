@@ -27,6 +27,7 @@ public class RedisService implements IRedisService {
     public String secKill() {
         final String lockKey = "secKill_key";
         RLock lock = redissonClient.getLock(lockKey);
+
 //        try {
 //            TODO:第一个参数10s表示尝试获取分布式锁，并且最大的等待获取锁的时间为10s
 //            TODO:第二个参数10s表示上锁之后，10s内操作完毕将自动释放锁

@@ -35,13 +35,13 @@ public class TestController {
 			json.put("msg","购买成功");
 			log.info("购买成功");
 		}else if("0".equals(secKill)) {
-			json.put("succ","true");
-			json.put("msg","商品已卖完");
-			log.info("商品已售罄");
+			json.put("succ","false");
+			json.put("msg","秒杀失败，库存不足");
+			log.info("秒杀失败，库存不足");
 		}else {
 			json.put("succ","false");
-			json.put("msg","未获取锁");
-			log.info("未获取锁");
+			json.put("msg","商品已卖完");
+			log.info("商品已售罄");
 		}
 		return json;
 	}
