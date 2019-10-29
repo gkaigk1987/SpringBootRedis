@@ -7,7 +7,7 @@ spring:
     suffix: .html
   redis:
     database: 0
-    host: 192.168.10.235
+    host: 192.168.31.251
     port: 6379
     password: gk_redis
     lettuce:
@@ -19,5 +19,12 @@ spring:
           
 server:
   port: 8888
-  
 
+redis:
+  config:
+    host: redis://192.168.31.251:6379
+
+logging:
+  level:
+    com.gk.redis: debug
+    org.springframework: info

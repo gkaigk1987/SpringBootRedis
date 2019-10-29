@@ -21,7 +21,7 @@ public class LettuceRedisTest {
 	@Test
 	public void test001() {
 		//第一种连接方式	gk_redis是密码
-		RedisClient client = RedisClient.create("redis://gk_redis@192.168.10.235:6379/0");
+		RedisClient client = RedisClient.create("redis://gk_redis@192.168.31.251:6379/0");
 		//第二种连接方式
 //		RedisClient client = RedisClient.create(RedisURI.create("redis://gk_redis@192.168.10.235:6379/0"));
 		//第三种连接方式
@@ -36,8 +36,11 @@ public class LettuceRedisTest {
 		StatefulRedisConnection<String,String> connect = client.connect();
 		RedisCommands<String,String> commands = connect.sync();	//同步命令
 		commands.set("key2", "value2");
+		commands.incr("test");
 		String key1_val = commands.get("key2");
+		String value1 = commands.get("key1");
 		System.out.println(key1_val);
+		System.out.println(value1);
 		connect.close();
 		client.shutdown();
 	}
