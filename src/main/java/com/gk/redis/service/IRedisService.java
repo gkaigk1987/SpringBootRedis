@@ -6,4 +6,10 @@ public interface IRedisService {
      * @return
      */
     public String secKill();
+
+    /**
+     * 模拟秒杀2
+     */
+    public void secKill2();
+
 }
